@@ -17,7 +17,8 @@
   - wykresy: `plt.figure(figsize=(18, 6))`, `plt.plot(...)`, `plt.title(...)`, `plt.ylabel(...)`, `plt.legend()`, `plt.show()`,
   - tabele wyników przez `pivot`, heatmapy przez `seaborn.heatmap`.
 - Kod (w przykładach i gdy piszesz za mnie) w stylu notatnika (`.ipynb`): małe komórki, jedna komórka = jeden krok.
-- Kluczy API i haseł nie wpisuj w kod. Trzymaj je w osobnym pliku (np. `klucz_api.txt`) dopisanym do `.gitignore` i wczytuj przez `open("klucz_api.txt").read().strip()`.
+- Kluczy API i haseł nie wpisuj w kod. Trzymam je w pliku `.env` w głównym folderze projektu (jest w `.gitignore`, nie commitujemy go). Wzór bez klucza: `.env.example`.
+  - Klucz ENTSO-E: zmienna `ENTSOE_API_KEY`. W notatniku wczytuję go przez `load_dotenv("../.env")` i `os.getenv("ENTSOE_API_KEY")` (biblioteka `python-dotenv`).
 - Przed kodem: 1–2 zdania, co robimy i po co.
 - Po kodzie: wytłumacz każdą nową rzecz, czyli co robi funkcja, co znaczą argumenty i co wychodzi. Bez zakładania, że coś „wiem”.
 - Komentarze w kodzie po polsku.
@@ -71,7 +72,7 @@
 
 ### Oprogramowanie
 - Python ≥ 3.14, środowisko **uv** (`pyproject.toml`, `uv.lock`, `.venv/`).
-- Zainstalowane: pandas, matplotlib. Do dodania: `pypsa` i solver (np. `highspy`, darmowy, domyślny w PyPSA).
+- Zainstalowane: pandas, matplotlib, entsoe-py, python-dotenv. Do dodania: `pypsa` i solver (np. `highspy`, darmowy, domyślny w PyPSA).
 - Ciężkie obliczenia można puszczać na domowym PC przez zdalny pulpit.
 
 ### Jednostki i konwencje
