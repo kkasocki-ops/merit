@@ -17,6 +17,14 @@ Przy każdej pozycji: co z niej wzięto i gdzie jest użyta. Pozycje oznaczone *
    Użyte: wykresy maxBex dla granic PL, DE, CZ, SK; granica PL–LT jako wirtualny hub `PL_LT_BigHub` (dane od 10.06.2026).
 5. **maxBex Nordic (flow-based)** – plik `data/links/nordic_max_bex.csv`. **[do uzupełnienia: wydawca – Nordic RCC / JAO Nordic]**
    Użyte: łącza HVDC SE4–PL (600 MW), SE4–LT (700 MW), SE4–DE (615 / 600 MW) w `data/links/ntc_2025.csv` (mediana 2025).
+6. **ENTSO-E Transparency Platform – moc zainstalowana per typ produkcji (Installed Capacity per Production Type, art. 14.1.a)**, rok 2025, PL, DE, CZ, SK, LT, SE; pobrane przez API ENTSO-E (biblioteka entsoe-py, `query_installed_generation_capacity`).
+   https://transparency.entsoe.eu (dostęp: **[do uzupełnienia: data pobrania]**)
+   Użyte: `notebooks/moce_zainstalowane_entsoe.ipynb` → porównanie z mocami z `data/power_units_PL_DE_CZ_SK_LT_SE.csv`; zapis w `data/moce_zainstalowane_entsoe_2025.csv`.
+7. **ENTSO-E Transparency Platform – moc zainstalowana per jednostka (Installed Capacity per Production Unit, art. 14.1.b)**, PL, rok 2025 (`query_installed_generation_capacity_per_unit`).
+   Użyte: `notebooks/moce_zainstalowane_entsoe.ipynb` (część opcjonalna, podgląd).
+8. **entsoe-py** – biblioteka Python do API ENTSO-E Transparency Platform (EnergieID).
+   https://github.com/EnergieID/entsoe-py
+   Użyte: pobieranie danych z ENTSO-E w `notebooks/moce_zainstalowane_entsoe.ipynb`.
 
 ## Ceny paliw i CO₂ (planowane, dzienne, 2025)
 
@@ -40,35 +48,35 @@ Przy każdej pozycji: co z niej wzięto i gdzie jest użyta. Pozycje oznaczone *
 
 ## Wartości przyjęte ręcznie
 
-6. **LitPol Link** – Wikipedia (hasło „LitPol Link”). https://en.wikipedia.org/wiki/LitPol_Link (dostęp: 04.11.2026).
+9. **LitPol Link** – Wikipedia (hasło „LitPol Link”). https://en.wikipedia.org/wiki/LitPol_Link (dostęp: 04.11.2026).
    Użyte: przepustowość PL–LT = 500 MW w obu kierunkach w `data/links/ntc_2025.csv` (brak danych o tej granicy za 2025 w maxBex i w `sce.csv`).
 
 ## Fakty o rynku użyte w opisach
 
-7. Flow-based w regionie CORE od 06.2022. **[do uzupełnienia: komunikat JAO / CORE TSOs]**
-8. Flow-based w regionie nordyckim od 10.2024. **[do uzupełnienia: komunikat Nordic RCC / Nord Pool]**
-9. Rynek DA w kroku 15 min od 10.2025 (SDAC 15-min MTU). **[do uzupełnienia: komunikat SDAC / ENTSO-E]**
-10. Synchronizacja państw bałtyckich z siecią kontynentalną w 02.2025. **[do uzupełnienia: ENTSO-E / Litgrid]**
-11. Zamknięcie aukcji DA o 12:00 CET w dniu D-1 (użyte do sprawdzenia, czy prognozy są D-1). **[do uzupełnienia: SDAC / EUPHEMIA]**
+10. Flow-based w regionie CORE od 06.2022. **[do uzupełnienia: komunikat JAO / CORE TSOs]**
+11. Flow-based w regionie nordyckim od 10.2024. **[do uzupełnienia: komunikat Nordic RCC / Nord Pool]**
+12. Rynek DA w kroku 15 min od 10.2025 (SDAC 15-min MTU). **[do uzupełnienia: komunikat SDAC / ENTSO-E]**
+13. Synchronizacja państw bałtyckich z siecią kontynentalną w 02.2025. **[do uzupełnienia: ENTSO-E / Litgrid]**
+14. Zamknięcie aukcji DA o 12:00 CET w dniu D-1 (użyte do sprawdzenia, czy prognozy są D-1). **[do uzupełnienia: SDAC / EUPHEMIA]**
 
 ## Baza bloków (`data/bloki_PL_DE_CZ_SK_LT_SE.csv`)
 
-12. powerplantmatching v0.9.1 (PyPSA). https://github.com/PyPSA/powerplantmatching
-13. Open Power System Data (OPSD) – rozbicie na bloki. https://open-power-system-data.org
-14. PyPSA technology-data, `costs_2025.csv` (sprawności typowe dla technologii). https://github.com/PyPSA/technology-data
-15. Global Energy Monitor – GEM Wiki (weryfikacja bloków).
-16. Bundesnetzagentur – lista elektrowni (stan 11.03.2026).
-17. Ignitis (dane bloków LT).
+15. powerplantmatching v0.9.1 (PyPSA). https://github.com/PyPSA/powerplantmatching
+16. Open Power System Data (OPSD) – rozbicie na bloki. https://open-power-system-data.org
+17. PyPSA technology-data, `costs_2025.csv` (sprawności typowe dla technologii). https://github.com/PyPSA/technology-data
+18. Global Energy Monitor – GEM Wiki (weryfikacja bloków).
+19. Bundesnetzagentur – lista elektrowni (stan 11.03.2026).
+20. Ignitis (dane bloków LT).
 
 ## Literatura i projekty referencyjne
 
-18. pypsa-eur-backcast (Open Energy Transition).
-19. PyPsa-European-power-spreads (gskurokawa) – porównanie NTC i flow-based.
-20. Karkossa, Saretta, Victoria (DTU, 2026), arXiv:2606.16486 – hindcast 2020–2024, SMAPE, dynamiczne ceny paliw.
-21. PyPSA-Eur. https://github.com/PyPSA/pypsa-eur
-22. PyPSA-PL-mini (Instrat) – kalibracja PL.
-23. OpenDAM – otwarta implementacja market couplingu.
-24. ASAM – model agentowy MESA + PyPSA.
-25. ERAA 2025 (ENTSO-E) i uwagi ACER do danych wejściowych.
-26. KPEiK (Ministerstwo Energii).
-27. JRC Dispa-SET – historyczne maksima NTC 2015–2016.
+21. pypsa-eur-backcast (Open Energy Transition).
+22. PyPsa-European-power-spreads (gskurokawa) – porównanie NTC i flow-based.
+23. Karkossa, Saretta, Victoria (DTU, 2026), arXiv:2606.16486 – hindcast 2020–2024, SMAPE, dynamiczne ceny paliw.
+24. PyPSA-Eur. https://github.com/PyPSA/pypsa-eur
+25. PyPSA-PL-mini (Instrat) – kalibracja PL.
+26. OpenDAM – otwarta implementacja market couplingu.
+27. ASAM – model agentowy MESA + PyPSA.
+28. ERAA 2025 (ENTSO-E) i uwagi ACER do danych wejściowych.
+29. KPEiK (Ministerstwo Energii).
+30. JRC Dispa-SET – historyczne maksima NTC 2015–2016.
