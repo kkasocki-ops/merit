@@ -29,6 +29,7 @@
 - Jeśli coś jest wolne (np. duże CSV), powiedz o tym i zaproponuj prosty sposób (np. `usecols=`, wczytanie tylko potrzebnych stref).
 - Przy błędzie: wyjaśnij, co znaczy komunikat, skąd się wziął i jak go naprawić.
 - Zmieniaj tylko to, o co proszę. Nie przepisuj całego notatnika bez pytania.
+- **Git:** pracujemy na osobnej gałęzi (nie na `main`). Do `main` merguję tylko ja – ty nie robisz merge, nie pushujesz na `main` i nie zatwierdzasz PR-ów.
 - Nowe biblioteki dodawaj dopiero po zapytaniu, przez `uv add <pakiet>`.
 - Komunikacja po polsku, zwięźle.
 
