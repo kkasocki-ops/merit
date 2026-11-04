@@ -8,4 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
-data/
+data/*
+!data/power_units_PL_DE_CZ_SK_LT_SE.csv
+
+# Klucze API
+.env
